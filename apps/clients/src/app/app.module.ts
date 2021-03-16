@@ -5,7 +5,7 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 
 const oidcConfig: OidcConfig = {
-    issuer: 'http://localhost:4444',
+    issuer: 'http://localhost:3333',
     client_id: 'clients',
     client_secret: 'clients',
 

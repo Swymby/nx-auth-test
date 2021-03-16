@@ -19,6 +19,7 @@
     "hub": { "tags": [] },
     "clients": { "tags": [] },
     "dashboard": { "tags": [] },
-    "auth": { "tags": [] }
+    "auth": { "tags": [] },
+    "shared-utils": { "tags": [] }
   }
 }

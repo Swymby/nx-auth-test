@@ -6,6 +6,8 @@ import { AuthenticatedGuard } from '@oauthtest/auth'
 
 import { Request, Response } from 'express'
 
+import { notRandom, random } from '@oauthtest/shared/utils'
+
 @Controller()
 export class AppController {
     constructor(private readonly appService: AppService) { }
@@ -25,7 +27,17 @@ export class AppController {
         const idToken = req.user['id_token']
         req.session.destroy(() => {
             console.log('logout')
-            res.redirect(`http://localhost:4444/oauth2/sessions/logout?id_token_hint=${idToken}&post_logout_redirect_uri=http://localhost:4700`)
+            res.redirect(`https://hydra.simonet.online/oauth2/sessions/logout?id_token_hint=${idToken}&post_logout_redirect_uri=http://localhost:4700`)
         })
+    }
+
+    @Get('/random')
+    getRandom(): number {
+        return random()
+    }
+
+    @Get('/notrandom')
+    gnotRandom(): number {
+        return notRandom()
     }
 }
